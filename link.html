@@ -4,20 +4,20 @@
 
 <head>
     <title>Link Generator</title>
-</head>
+</head> required
 
 <body>
     <form onsubmit=buttonClicked(event);>
         <label for="link">S3 Link:</label>
-        <input type="text" id="link" name="link"><br><br>
+        <input type="text" id="link" name="link" size="80" required><br><br>
         <label for="fName">First name:</label>
-        <input type="text" id="fName" name="fName"><br><br>
+        <input type="text" id="fName" name="fName" required><br><br>
         <label for="lName">Last name:</label>
-        <input type="text" id="lName" name="lName"><br><br>
+        <input type="text" id="lName" name="lName" required><br><br>
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email"><br><br>
+        <input type="text" id="email" name="email" required><br><br>
         <label for="lName">slackID:</label>
-        <input type="text" id="slackID" name="slackID"><br><br>
+        <input type="text" id="slackID" name="slackID" required><br><br>
         <button id="submit" type="submit">Submit</button>
     </form>
     <div id="result">
@@ -36,7 +36,7 @@
         const lName = document.getElementById('lName').value;
         const email = document.getElementById('email').value;
         const slackID = document.getElementById('slackID').value;
-        nonEncoded = "fName=" + fName + "&lName=" + lName + "&email=" + email + "&slackID=<@" + slackID + ">"
+        nonEncoded = fName + "/" + lName + "/" + email + "/" + slackID
         const encoded = window.btoa(nonEncoded);
         console.log(encoded);
         console.log(nonEncoded);
