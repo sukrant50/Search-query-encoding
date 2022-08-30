@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Link Generator</title>
+</head>
+
+<body>
+    <form onsubmit=buttonClicked(event);>
+        <label for="link">S3 Link:</label>
+        <input type="text" id="link" name="link"><br><br>
+        <label for="fName">First name:</label>
+        <input type="text" id="fName" name="fName"><br><br>
+        <label for="lName">Last name:</label>
+        <input type="text" id="lName" name="lName"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <label for="lName">slackID:</label>
+        <input type="text" id="slackID" name="slackID"><br><br>
+        <button id="submit" type="submit">Submit</button>
+    </form>
+    <div id="result">
+        <textarea id="nonEncoded" name="nonEncoded" cols="30" rows="10"></textarea>
+        <textarea id="encoded" name="encoded" cols="30" rows="10"></textarea>
+    </div>
+</body>
+
+<script>
+
+    var nonEncoded = "";
+
+    function buttonClicked(event) {
+        const link = document.getElementById('link').value;
+        const fName = document.getElementById('fName').value;
+        const lName = document.getElementById('lName').value;
+        const email = document.getElementById('email').value;
+        const slackID = document.getElementById('slackID').value;
+        nonEncoded = "fName=" + fName + "&lName=" + lName + "&email=" + email + "&slackID=<@" + slackID + ">"
+        const encoded = window.btoa(nonEncoded);
+        console.log(encoded);
+        console.log(nonEncoded);
+        document.getElementById("nonEncoded").innerHTML = link + "?" + nonEncoded;
+        document.getElementById("encoded").innerHTML = link + "?" + encoded;
+        event.preventDefault();
+    }
+
+
+</script>
+
+</html>
